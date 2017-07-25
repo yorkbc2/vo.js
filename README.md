@@ -47,3 +47,49 @@ console.log(vo("#root").html())
 // <b>It works!</b>
 
 ```
+
+### vo().upper() & vo().lower()
+
+Methods for uppercasing and lowercasing words in block. All words will be uppercased or lowercased from method.
+
+```html
+<div id='root'>
+	Hello My Little Friend
+</div>
+```
+
+``` javascript
+
+vo("#root").upper() 
+
+// Output: HELLO MY LITTLE FRIEND
+
+vo("#root").lower()
+
+// Output: hello my little friend
+
+```
+
+### vo().replace( regular, string )
+
+This method replaces regular expression on string in argument
+
+#### Usage
+
+``` html
+
+<div id="vo">	
+	I like Javascript
+</div>
+
+```
+
+``` javascript
+
+vo("#vo")
+	.replace(/(like)/gi, "hate")
+
+//Output: I hate Javascript
+
+```
+

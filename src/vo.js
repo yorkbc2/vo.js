@@ -1,6 +1,8 @@
 
 var WHITE_SPACES = /[\ ]/g;
 
+var CLICK_STRING = "click", INPUT_STRING = "input", CHANGE_STRING = "change";
+
 
 var vo = function (selector) {
 	return DOMControllerVO.create(selector)
@@ -120,6 +122,17 @@ DOMControllerVO.addMethods([
 		}
 		else {
 			return this.innerHTML;
+		}
+	},
+
+	function val(value) {
+		if(value !== undefined) {
+			this.value = value;
+
+			return this;
+		}
+		else {
+			return this.value;
 		}
 	},
 
@@ -250,25 +263,100 @@ VO.dom.addMethods([
 	}
 ])
 
+VO.__proto__.get = function (url, sync) {
+	if(async !== undefined) {
+		sync = async;
+	}
+	else {
+		sync = false;
+	}
+	return new Promise(function (resolve, reject) {
+
+		var xhr = new new XMLHttpRequest();
+
+		xhr.open("GET", url, sync);
+
+		xhr.onload = function () {
+
+			if(this.status >= 200 && this.status < 300) {
+				resolve(xhr.response)
+			}
+			else {
+				reject({
+					status: this.status,
+					statusData: xhr.statusText
+				})
+			}
+
+		}
+
+		xhr.send()
+
+
+	});
+}
+
 
 VO.dom.addMethods([
-	// TODO
-	function click() {},
+	function click(event) {
 
-	// TODO 
-	function event() {},
+		var self = this;
 
-	// TODO 
-	function rmEvent() {},
+		this.addEventListener(CLICK_STRING, function (e) {
+
+			event(e, self)
+
+		})
+
+		return this;
+
+	},
+
+	function event(name, handler) {
+
+		var self = this;
+
+		this.addEventListener(name, function (ev) {
+			handler(ev, self);
+		})
+
+		return this;
+
+	},
+
+	function rmEvent(name) {
+
+		this.removeEventListener(name)
+
+		return this;
+	},
 
 	// TODO
 	function hover() {},
 
-	// TODO
-	function input() {},
+	function input(event) {
+		var self = this;
 
-	// TODO
-	function change() {},
+		this.addEventListener(INPUT_STRING, function (e) {
+
+			event(e, self)
+
+		})
+
+		return this;
+	},
+
+	function change(event) {
+		var self = this;
+
+		this.addEventListener(CHANGE_STRING, function (e) {
+
+			event(e, self)
+
+		})
+
+		return this;
+	},
 
 	// TODO
 	function dblclick() {}
