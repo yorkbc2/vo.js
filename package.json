@@ -1,0 +1,15 @@
+{
+  "name": "vo.js",
+  "version": "0.1",
+  "description": "Dom controller",
+  "main": "vo.js",
+  "repository": "https://github.com/yorkbc2/vo.js",
+  "author": "alexyorke <yorkbc2@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify": "^1.0.0",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
+  }
+}

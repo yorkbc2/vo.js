@@ -1,0 +1,22 @@
+{
+  "name": "vo.js",
+  "homepage": "https://github.com/yorkbc2/vo.js",
+  "authors": [
+    "alexyorke <yorkbc2@gmail.com>"
+  ],
+  "description": "Library for dom controller and write plugins",
+  "main": "vo.js",
+  "keywords": [
+    "DOM",
+    "Library",
+    "JS"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
