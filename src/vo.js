@@ -249,3 +249,29 @@ VO.dom.addMethods([
 		return this;
 	}
 ])
+
+
+VO.dom.addMethods([
+	// TODO
+	function click() {},
+
+	// TODO 
+	function event() {},
+
+	// TODO 
+	function rmEvent() {},
+
+	// TODO
+	function hover() {},
+
+	// TODO
+	function input() {},
+
+	// TODO
+	function change() {},
+
+	// TODO
+	function dblclick() {}
+
+
+])
