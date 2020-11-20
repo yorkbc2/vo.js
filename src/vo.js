@@ -358,8 +358,15 @@ VO.dom.addMethods([
 		return this;
 	},
 
-	// TODO
-	function dblclick() {}
+	function dblclick(event) {
+		var self = this;
+		
+		this.addEventListener('dblclick', function (e) {
+			event(e, self);
+		})
+		
+		return this;
+	}
 
 
 ])
